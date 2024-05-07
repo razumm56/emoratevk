@@ -29,7 +29,7 @@ const Main = () => {
 						className="main_input"
 						type="text"
 						ref={inputRef}
-						placeholder="Введите комментарий или ссылку"
+						placeholder="Введите ссылку"
 					/>
 					<button className="btn1" onClick={handleInputChange}>
 						➤
