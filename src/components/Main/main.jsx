@@ -23,7 +23,7 @@ const Main = () => {
 			<div className="main">
 				<Diagrams className="diogram" />
 				{/* <Diagrams2 className = 'diogram' /> */}
-				<p>{inputValue} Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit sit saepe rerum repudiandae voluptatem doloremque, animi expedita? Soluta sequi laboriosam quae, voluptas aperiam dolor officiis? Eveniet consequuntur nobis atque excepturi. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi totam id quasi non corrupti, quos quis aliquid beatae nemo tempore numquam qui quisquam, nesciunt consectetur vitae suscipit, veniam ducimus ullam.</p>
+				<p>{inputValue} Нейтральных комментариев больше. Всего комментариев: 58</p>
 				<form>
 					<input
 						className="main_input"
