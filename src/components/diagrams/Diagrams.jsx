@@ -16,15 +16,15 @@ const Diagrams = () => {
     if (windowSize.width < 768) {
       return { width: 400, height: 400, outerRadius: '80%' };
     } else {
-      return { width: 500, height: 500, outerRadius: '90%' };
+      return { width: 550, height: 500, outerRadius: '90%' };
     }
   };
 
   const chartDimensions = getChartDimensions();
   const data01 = [
-    { name: "Group A", value: 500 },
-    { name: "Group B", value: 300 },
-    { name: "Group C", value: 300 },
+    { name: "К-во положительных комментариев", value: 1, fill: "#4caf50"},
+    { name: "К-во отрицательных комментариев", value: 2, fill: "#f44336" },
+    { name: "К-во нейтральных комментариев", value: 55, fill: "#2196f3" },
   ];
 
   return (
