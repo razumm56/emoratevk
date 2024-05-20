@@ -51,7 +51,7 @@ const Diagrams = () => {
 					fill="#8884d8"
 					label={({percent }) =>
 						`${(percent * 100).toFixed(0)}%`
-					}
+					} // хуй 
 				/>
 
 				<Tooltip />
