@@ -4,6 +4,8 @@ import detectDarkMode from "../../utils/detectDarkMode";
 import sun from "./sun.svg";
 import moon from "./moon.svg";
 import "./style.css";
+import Footer from "../Footer/Footer";
+import Diagrams from "../diagrams/Diagrams";
 
 const BtnDarkMode = () => {
 	const [darkMode, setDarkMode] = useLocalStorage(

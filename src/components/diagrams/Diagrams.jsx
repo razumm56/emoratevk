@@ -4,11 +4,12 @@ import fetchData from "../../utils/fetchData";
 
 const Diagrams = ({ data }) => {
 	const [labelVisible, setLabelVisible] = useState(false);
+	
 
 	useEffect(() => {
 		const timer = setTimeout(() => {
 			setLabelVisible(true);
-		}, 2500); // Set the delay here, 3000ms is 3 seconds
+		}, 2500);
 
 		return () => clearTimeout(timer);
 	}, []);
@@ -35,7 +36,7 @@ const Diagrams = ({ data }) => {
 			return {
 				width: 410,
 				height: 400,
-				outerRadius: "80%",
+				outerRadius: "85%",
 				innerRadiusmin: "50%",
 				innerRadiusmax: "60%",
 			};
@@ -43,7 +44,7 @@ const Diagrams = ({ data }) => {
 			return {
 				width: 560,
 				height: 500,
-				outerRadius: "90%",
+				outerRadius: "95%",
 				innerRadiusmin: "60%",
 				innerRadiusmax: "70%",
 			};
@@ -55,30 +56,30 @@ const Diagrams = ({ data }) => {
 		? [
 				{
 					name: "К-во положительных комментариев",
-					value: data.positive,
+					value: Math.round(data.positive + data.neutral / 4),
 					fill: "#4caf50",
 				},
 				{
 					name: "К-во отрицательных комментариев",
-					value: data.negative,
+					value: Math.round(data.negative + data.neutral / 4),
 					fill: "#FF0000",
 				},
 				{
 					name: "К-во нейтральных комментариев",
-					value: data.neutral,
+					value: Math.floor(data.neutral - data.neutral / 2),
 					fill: "#2196f3",
 				},
 		  ]
 		: [];
 	const fullprocent = data
 		? (
-				((data.positive * 1 + data.negative * -1 + data.neutral * 0) /
-					data.count) *
-				100
+				((data.positive + data.neutral / 4) /
+					(data.negative + data.positive + data.neutral / 2)) *
+				100 
 		  ).toFixed(2)
 		: 0;
 	const data02 = data
-		? [{ name: "Общее к-во комментариев", value: data.count }]
+		? [{ name: "Общее к-во комментариев", value: data.comments_count }]
 		: [];
 
 	// Function to determine the color of the label based on the percentage
@@ -96,19 +97,20 @@ const Diagrams = ({ data }) => {
 				height={chartDimensions.height}
 			>
 				<Pie
+					className="pie-chert"
 					data={data02}
 					dataKey="value"
 					cx="50%"
 					cy="50%"
 					outerRadius={chartDimensions.innerRadiusmin}
-					fill="#8884d8"
+					fill='white'
 					stroke="none"
 				>
 					{labelVisible && (
 						<Label
 							value={fullprocent + "%"}
 							position="center"
-							style={{ fill: labelColor, fontSize: 40 }}
+							style={{ fill: labelColor, fontSize: 60 }}
 						/>
 					)}
 				</Pie>
